@@ -1,5 +1,5 @@
-Django==4.x.x
-fastapi==0.x.x
-uvicorn==0.x.x
-django-cors-headers==x.x.x
-asgiref==x.x.x
+Django==4.2.7
+fastapi==0.100.0
+uvicorn==0.23.2
+django-cors-headers==4.0.0
+asgiref==3.7.2
