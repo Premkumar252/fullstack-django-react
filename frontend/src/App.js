@@ -10,25 +10,54 @@ function App() {
   const [students, setStudents] = useState([]);
 
   const insertData = () => {
-    axios.post("http://127.0.0.1:8000/insert/", {
-      name,
-      age,
-      email
+    if (!name.trim()) {
+      alert("Please enter a name");
+      return;
+    }
+
+    axios.post("http://localhost:8000/api/insert/", {
+      name: name.trim(),
+      age: age || "",
+      email: email.trim()
+    }, {
+      headers: {
+        "Content-Type": "application/json"
+      }
     })
-    .then(() => {
-      alert("Inserted");
+    .then(res => {
+      alert("Inserted Successfully!");
+      setName("");
+      setAge("");
+      setEmail("");
       fetchData(); // auto refresh
+    })
+    .catch(err => {
+      const errorMsg = err.response?.data?.error || err.message || "Unknown error";
+      alert("Error: " + errorMsg);
+      console.error("Insert Error:", err);
     });
   };
 
   const fetchData = () => {
-    axios.get("http://127.0.0.1:8000/students/")
-      .then(res => setStudents(res.data));
+    axios.get("http://localhost:8000/api/students/")
+      .then(res => {
+        setStudents(res.data);
+      })
+      .catch(err => {
+        const errorMsg = err.response?.data?.error || err.message || "Unknown error";
+        alert("Error: " + errorMsg);
+        console.error("Fetch Error:", err);
+      });
   };
 
   const filterData = () => {
-    axios.get(`http://127.0.0.1:8000/filter/?name=${filter}`)
-      .then(res => setStudents(res.data));
+    axios.get(`http://localhost:8000/api/filter/?name=${encodeURIComponent(filter)}`)
+      .then(res => setStudents(res.data))
+      .catch(err => {
+        const errorMsg = err.response?.data?.error || err.message || "Unknown error";
+        alert("Error: " + errorMsg);
+        console.error("Filter Error:", err);
+      });
   };
 
   return (

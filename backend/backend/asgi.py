@@ -9,23 +9,10 @@ https://docs.djangoproject.com/en/5.2/howto/deployment/asgi/
 
 import os
 from django.core.asgi import get_asgi_application
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+from django.urls import path
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
 
-django_app = get_asgi_application()
-
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from api.fastapi_app import app as fastapi_app
-
-app = FastAPI()
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins (use specific URLs in production)
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-app.mount("/", fastapi_app)
+application = get_asgi_application()
