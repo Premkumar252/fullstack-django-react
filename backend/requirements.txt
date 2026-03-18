@@ -1,0 +1,5 @@
+Django==4.x.x
+fastapi==0.x.x
+uvicorn==0.x.x
+django-cors-headers==x.x.x
+asgiref==x.x.x
