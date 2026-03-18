@@ -1,0 +1,128 @@
+/* Global Dark Theme */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+/* Layout */
+.main {
+  display: flex;
+  gap: 25px;
+  padding: 30px;
+}
+
+/* LEFT PANEL */
+.left {
+  flex: 2;
+  background: #1e293b;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* RIGHT PANEL */
+.right {
+  flex: 1;
+}
+
+/* Headings */
+h2 {
+  margin-bottom: 15px;
+  color: #38bdf8;
+}
+
+/* Divider */
+hr {
+  border: none;
+  border-top: 1px solid #334155;
+  margin: 25px 0;
+}
+
+/* Input Fields */
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: #0f172a;
+  color: #e2e8f0;
+  border: 1px solid #334155;
+  transition: 0.2s;
+}
+
+input:focus {
+  border: 1px solid #38bdf8;
+  box-shadow: 0 0 5px #38bdf8;
+}
+
+/* Buttons */
+button {
+  padding: 10px 16px;
+  margin: 10px 8px 10px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #0f172a;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(56,189,248,0.4);
+}
+
+/* Secondary Button */
+button.secondary {
+  background: #475569;
+  color: white;
+}
+
+button.secondary:hover {
+  background: #334155;
+}
+
+/* List */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #0f172a;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  transition: 0.2s;
+}
+
+li:hover {
+  background: #1e293b;
+  transform: scale(1.01);
+}
+
+/* RIGHT SIDE CARDS */
+.card {
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #334155;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.card h3 {
+  color: #38bdf8;
+  margin-bottom: 10px;
+}
+
+.card p {
+  margin: 6px 0;
+  color: #cbd5f5;
+}
